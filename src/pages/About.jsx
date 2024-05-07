@@ -3,8 +3,8 @@ import React from "react";
 const About = () => {
   return (
     <>
-      <div className="text-5xl font-bold mb-10">About Me</div>
-      <div className="text-xl font-normal">
+      <div className="text-5xl font-bold mb-10 ">About Me</div>
+      <div className="text-xl  font-mono text-green-100">
         Hello I am Ashish Singh. I am a B.Tech Student currently studying in
         G.L. Bajaj Institute of Technology, Greater Noida. I am constantly
         developing my skills and expanding my knowledge in various areas of

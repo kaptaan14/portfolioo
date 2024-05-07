@@ -8,6 +8,7 @@ import Container from "./components/Container";
 import NotFoundPage from "./components/NotFoundPage";
 import Terminal from "./terminal/Terminal";
 import { useState } from "react";
+import Footer from "./components/Footer";
 
 function App() {
   const [dev, setDev] = useState(false);
@@ -25,6 +26,7 @@ function App() {
               <Route path="/links" element={<Links />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
+            <Footer/>
           </Container>
         </div>
       )}

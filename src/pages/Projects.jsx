@@ -5,6 +5,13 @@ import { BsGlobe2 } from "react-icons/bs";
 const Projects = () => {
   const projects = [
     {
+      title: "mrashishsingh.me",
+      description:
+        "My portfolio",
+      source: "https://github.com/kaptaan14/portfoliooo",
+      demo: "https://www.mrashishsingh.me",
+    }, 
+    {
       title: "PostLife App",
       description:
         "A social media app where you can share post with your friends.",
