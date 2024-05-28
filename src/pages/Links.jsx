@@ -21,7 +21,7 @@ const Links = () => {
             <a target="_blank" className={iconClass} href="https://leetcode.com/u/hiddencaptain/"><SiLeetcode size={40}/>LeetCode</a>
             <a target="_blank" className={iconClass} href="https://www.linkedin.com/in/ashish-singh-964229220/"><FaLinkedin size={40}/>LinkedIn</a>
             <a href="mailto:mrashishthakur2@gmail.com" className={iconClass} ><MdEmail size={40}/>Email</a>
-            <a href="./public/resume.pdf" download="resume.pdf" className={iconClass} ><MdDownloadForOffline size={40}/>Resume</a>
+            <a href="./resume.pdf" download="resume.pdf" className={iconClass} ><MdDownloadForOffline size={40}/>Resume</a>
         </div>
    
     </>
