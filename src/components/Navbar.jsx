@@ -1,70 +1,60 @@
-import React from "react";
-import { FaFolderOpen } from "react-icons/fa6";
-import { GiNotebook } from "react-icons/gi";
-import { PiLinkSimpleBold } from "react-icons/pi";
-import { NavLink, useLocation } from "react-router-dom";
-import { BsInfoCircleFill } from "react-icons/bs";
+import React, { useEffect, useState } from "react";
+import { Link,useLocation } from "react-router-dom";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
 
-const Navbar = ({dev, setDev}) => {
-  const toggleMode = ()=>{
-      setDev(true)
-  }
+
+
+const Navbar = () => {
   const location = useLocation();
-  const navClass =
-    "px-1 py-2 sm:py-2 flex justify-center items-center mr-3 border border-greylight-100 font-bold w-20 sm:min-w-32 rounded-2xl cursor-pointer gap-1  hover:bg-greylight-100 ";
-  return (
-    <div className="flex flex-row justify-between items-center">
-      <div className="flex flex-row justify-between w-full sm:w-0 items-center py-10 sm:py-16">
-        <NavLink
-          to="/"
-          className={`${navClass} ${
-            location.pathname === "/"
-              ? "bg-greylight-100 border-greylight-400"
-              : ""
-          }`}
-        >
-          <BsInfoCircleFill size={30} />
-          <p className="hidden sm:flex">About</p>
-        </NavLink>
-        <NavLink
-          to="/projects"
-          className={`${navClass} ${
-            location.pathname === "/projects"
-              ? "bg-greylight-100 border-greylight-400"
-              : ""
-          }`}
-        >
-          <FaFolderOpen size={30} />
-          <p className="hidden sm:flex">Projects</p>
-        </NavLink>
-        <NavLink
-          to="/blogs"
-          className={`${navClass} ${
-            location.pathname === "/blogs"
-              ? "bg-greylight-100 border-greylight-400"
-              : ""
-          }`}
-        >
-          <GiNotebook size={30} />
-          <p className="hidden sm:flex">Blogs</p>
-        </NavLink>
-        <NavLink
-          to="/links"
-          className={`${navClass} ${
-            location.pathname === "/links"
-              ? "bg-greylight-100 border-greylight-400"
-              : ""
-          }`}
-        >
-          <PiLinkSimpleBold size={30} />
-          <p className="hidden sm:flex">Links</p>
-        </NavLink>
-      </div>
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("darkMode") === "true";
+  });
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
 
-      <div onClick={toggleMode} className="hidden sm:flex bg-greylight-100 rounded-full p-3  hover:bg-greylight-200">
-        <button >Dev Mode</button>
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem("darkMode", newMode);
+      return newMode;
+    });
+  };
+
+  const getLinkClass = (path) => {
+    return location.pathname === path
+      ? "text-green-500 underline dark:text-green-400"
+      : "dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-300";
+  };
+
+  
+  return (
+    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-black-800 text-white p-4 border-b border-gray-700 dark:border-white z-50">
+      <div className="container mx-auto flex justify-between items-center max-w-2xl">
+        <Link to={"/"} className="text-2xl hidden md:block font-mono cursor-pointer">
+          <span className="text-green-500 dark:text-green-400">Ash</span>
+          <span className="text-gray-500">ish</span>
+        </Link>
+        <div className="space-x-10 font-semibold text-gray-700">
+          <Link to="/projects" className={getLinkClass("/projects")}>
+            Projects
+          </Link>
+          <Link to="/blogs" className={getLinkClass("/blogs")}>
+            Blogs
+          </Link>
+          <Link to="/links" className={getLinkClass("/links")}>
+            Links
+          </Link>
+          <Link to="/aboutme" className={getLinkClass("/aboutme")}>
+            About Me
+          </Link>
+        </div>
+        <button onClick={toggleDarkMode} className="text-gray-400 dark:text-gray-500">
+          {darkMode ?  <MdOutlineLightMode size={25}/> : <MdOutlineDarkMode size={25}/>}         
+        </button>
       </div>
-    </div>
+    </nav>
   );
 };
 

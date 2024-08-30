@@ -3,12 +3,20 @@ import React from "react";
 const About = () => {
   return (
     <>
-      <div className="text-5xl font-bold mb-10 ">About Me</div>
-      <div className="text-xl  font-mono text-green-100">
-        Hello I am Ashish Singh. I am a B.Tech Student currently studying in
-        G.L. Bajaj Institute of Technology, Greater Noida. I am constantly
-        developing my skills and expanding my knowledge in various areas of
-        technology.
+      <div className="text-5xl font-bold mb-10 text-center">About Me</div>
+      <div className="text-xl  font-mono ">
+        Hello I am{" "}
+        <span className="italic underline text-blue-500">Ashish Singh</span>. I
+        am a{" "}
+        <span className="text-yellow-800 underline dark:text-yellow-400">
+          B.Tech Student
+        </span>{" "}
+        currently studying in{" "}
+        <span className="text-yellow-800 underline dark:text-yellow-400">
+          G.L. Bajaj Institute of Technology
+        </span>
+        , Greater Noida. I am constantly developing my skills and expanding my
+        knowledge in various areas of technology.
         <br />
         <br />
         I want to develop things that have a tangible impact on people’s lives.
