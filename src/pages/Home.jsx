@@ -71,6 +71,11 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="border mt-5"></div>
+
+      {/* <div className="flex mt-10">
+        <h1 className="text-4xl font-bold underline">Blogs</h1>
+      </div> */}
     </>
   );
 };
